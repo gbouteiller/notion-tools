@@ -1,0 +1,49 @@
+# DEPENDENCIES
+node_modules/
+/.pnp
+.pnp.js
+.pnpm-store
+package-lock.json
+
+# TESTING
+/coverage
+*.lcov
+.nyc_output
+
+# BUILD
+build/
+public/build/
+dist/
+generated/
+
+# ENV FILES
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# LOGS
+logs
+*.log
+pnpm-debug.log*
+
+# MISC
+.idea
+.cache/
+.svelte-kit
+.turbo
+.vercel
+.next
+next-env.d.ts
+.nuxt
+tmp/
+temp/
+.docusaurus
+*.tsbuildinfo
+
+# MAC
+._*
+.DS_Store
+Thumbs.db
+
