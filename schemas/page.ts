@@ -1,6 +1,15 @@
-import {transform} from 'valibot';
-import {vIPage} from './inputs';
+import {z, type ZodRawShape} from 'zod';
+import {pageCommonFrom, pageFrom} from '../utils';
+import {zPageAny as zNPageAny, zPageCommon as zNPageCommon} from './input';
 
-export const vPage = transform(vIPage, ({created_by, created_time, last_edited_by, last_edited_time}) => {
-  return {created: {at: created_time, by: created_by.id}, updated: {at: last_edited_time, by: last_edited_by.id}};
-});
+// MAIN ====================================================================================================================================
+export const zPageAny = zNPageAny.transform(pageFrom);
+export type PageAny = z.infer<typeof zPageAny>;
+
+export function zPage<P extends ZodRawShape>(props: P) {
+  return z.object({...zNPageCommon.shape, properties: z.object(props)}).transform(pageCommonFrom);
+}
+
+export function zPageProps<P extends ZodRawShape>(props: P) {
+  return zPage(props).transform(({properties}) => properties!);
+}

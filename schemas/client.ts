@@ -1,9 +1,11 @@
-import {array, merge, object, omit, transform, type BaseSchema} from 'valibot';
-import {vIListSearchPageOrDatabase} from './inputs';
+import type {ZodTypeAny} from 'zod';
+import {listCommonFrom} from '../utils';
+import {zListSearchPageOrDatabase as zIListSearchPageOrDatabase} from './input';
 
-export function vDatabaseList<T extends BaseSchema>(vItem: T) {
-  return transform(
-    merge([omit(vIListSearchPageOrDatabase, ['object', 'page_or_database', 'type']), object({results: array(vItem)})]),
-    ({has_more: hasMore, next_cursor, results}) => ({hasMore, cursor: next_cursor ?? undefined, results})
-  );
+export function zDatabaseList<R extends ZodTypeAny>(zResult: R) {
+  return zIListSearchPageOrDatabase(zResult).omit({type: true, page_or_database: true}).transform(listCommonFrom);
+}
+
+export function zDatabaseItems<I extends ZodTypeAny>(zItem: I) {
+  return zDatabaseList(zItem).transform(({results}) => results);
 }

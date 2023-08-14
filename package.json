@@ -6,9 +6,24 @@
   "main": "index.ts",
   "types": "index.ts",
   "dependencies": {
-    "valibot": "^0.5.0"
+    "@mobily/ts-belt": "^3.13.1",
+    "@notionhq/client": "^2.2.10",
+    "notion-to-md": "^3.1.1",
+    "type-fest": "^4.2.0",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.1.0",
+    "@total-typescript/ts-reset": "^0.4.2",
+    "@types/node": "^20.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "prettier": "^3.0.1",
     "typescript": "^5.1.6"
   }
 }
