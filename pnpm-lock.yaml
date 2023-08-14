@@ -6,11 +6,14 @@ settings:
 
 dependencies:
   '@mobily/ts-belt':
-    specifier: ^3.13.1
-    version: 3.13.1
+    specifier: 4.0.0-rc.5
+    version: 4.0.0-rc.5
   '@notionhq/client':
     specifier: ^2.2.10
     version: 2.2.10
+  notion-to-md:
+    specifier: ^3.1.1
+    version: 3.1.1
   type-fest:
     specifier: ^4.2.0
     version: 4.2.0
@@ -49,9 +52,6 @@ devDependencies:
   eslint-plugin-unicorn:
     specifier: ^48.0.1
     version: 48.0.1(eslint@8.47.0)
-  notion-to-md:
-    specifier: ^3.1.1
-    version: 3.1.1
   prettier:
     specifier: ^3.0.1
     version: 3.0.1
@@ -602,8 +602,8 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
-  /@mobily/ts-belt@3.13.1:
-    resolution: {integrity: sha512-K5KqIhPI/EoCTbA6CGbrenM9s41OouyK8A03fGJJcla/zKucsgLbz8HNbeseoLarRPgyWJsUyCYqFhI7t3Ra9Q==}
+  /@mobily/ts-belt@4.0.0-rc.5:
+    resolution: {integrity: sha512-HLWJ8yKrfwdMzCvckRunrAL8Z+K5q31FdY6JzhkBp8o6uQsVuzf26KFyno1s6n6GB78OJEsjs57SaDk9plsJhA==}
     engines: {node: '>= 10.*'}
     dev: false
 
@@ -2104,7 +2104,7 @@ packages:
     resolution: {integrity: sha512-Ezda85ToJUBhM6WGaG6veasyym+Tbs3cMAw/ZhOPqXiYsr0jgocBV3j3nx+4lk47plLlIqjwuTm/ywVI+zjJ/A==}
     dependencies:
       repeat-string: 1.6.1
-    dev: true
+    dev: false
 
   /meow@6.1.1:
     resolution: {integrity: sha512-3YffViIt2QWgTy6Pale5QpopX/IvU3LPL03jOTqp6pGj3VjesdO/U8CuHMKpnQr4shCNCM5fd5XFFvIIl6JBHg==}
@@ -2217,7 +2217,7 @@ packages:
       node-fetch: 2.6.12
     transitivePeerDependencies:
       - encoding
-    dev: true
+    dev: false
 
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}
@@ -2487,7 +2487,7 @@ packages:
   /repeat-string@1.6.1:
     resolution: {integrity: sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w==}
     engines: {node: '>=0.10'}
-    dev: true
+    dev: false
 
   /require-directory@2.1.1:
     resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}

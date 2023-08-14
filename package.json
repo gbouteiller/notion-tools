@@ -1,12 +1,12 @@
 {
   "name": "@niama/notion-tools",
   "description": "Notion tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "index.ts",
   "types": "index.ts",
   "dependencies": {
-    "@mobily/ts-belt": "^3.13.1",
+    "@mobily/ts-belt": "4.0.0-rc.5",
     "@notionhq/client": "^2.2.10",
     "notion-to-md": "^3.1.1",
     "type-fest": "^4.2.0",
