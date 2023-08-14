@@ -9,7 +9,8 @@ import type {
   PagePropRelation as NPagePropRelation,
   PagePropRichText as NPagePropRichText,
   PagePropRollup as NPagePropRollup,
-  PagePropTitle as NPagePropTitle
+  PagePropTitle as NPagePropTitle,
+  RollupArray as NRollupArray
 } from '../schemas/input';
 import {listCommonFrom, pageOrDatabaseCommonFrom, parentFrom, richTextFrom, rollupFrom} from './common';
 import {
@@ -49,7 +50,7 @@ export function pagePropRichTextFrom({rich_text, ...r}: NPagePropRichText) {
 
 // ROLLUP ==================================================================================================================================
 export function pagePropRollupFrom({rollup, ...r}: NPagePropRollup) {
-  if (rollup.type === 'array') rollup.array = rollup.array.flatMap(pagePropFrom);
+  if (rollup.type === 'array') rollup =  {...rollup, array: rollup.array.flatMap(pagePropFrom)} as NRollupArray;
   return {...r, value: rollupFrom(rollup)};
 }
 
