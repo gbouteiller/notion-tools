@@ -1,5 +1,11 @@
 # @niama/notion-tools
 
+## 1.0.3
+
+### Patch Changes
+
+- add assets management
+
 ## 1.0.2
 
 ### Patch Changes

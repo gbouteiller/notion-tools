@@ -8,7 +8,7 @@ import {
 } from '../schemas/input';
 import {banNull, listCommonFrom} from './common';
 
-// MAIN ====================================================================================================================================
+// MAIN ------------------------------------------------------------------------------------------------------------------------------------
 export function userBotFrom({bot, ...r}: NUserBot) {
   return userCommonFrom({owner: userBotOwnerFrom(bot), ...r});
 }
@@ -32,7 +32,7 @@ export function userFrom<U extends NUser>(user: U) {
   throw new Error('unknown user type');
 }
 
-// LIST ====================================================================================================================================
+// LIST ------------------------------------------------------------------------------------------------------------------------------------
 export function listUserFrom<L extends NListUser>({results, type: _, user: __, ...r}: L) {
   return listCommonFrom({results: results.map(userFrom), ...r});
 }

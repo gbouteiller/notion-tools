@@ -1,4 +1,6 @@
+export * from './assets';
 export * from './block';
+export * from './cms';
 export * from './common';
 export * from './database';
 export * from './endpoint';

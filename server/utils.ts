@@ -13,7 +13,7 @@ export function safe<M extends AnyMethod>(method: M): Safe<M> {
     };
 }
 
-// TYPES ===================================================================================================================================
+// TYPES -----------------------------------------------------------------------------------------------------------------------------------
 export type AnyFetch = (...args: any[]) => Promise<Response>;
 export type AnyMethod = (...args: any[]) => Promise<unknown>;
 export type Safe<M extends AnyMethod> = <S extends ZodTypeAny>(schema: S) => (...args: Parameters<M>) => Promise<S['_output']>;

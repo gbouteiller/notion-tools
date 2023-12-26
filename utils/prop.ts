@@ -156,7 +156,7 @@ export function propStatusFrom({id, status, type}: Omit<NPropStatus, 'object'>) 
 }
 export type PropStatus= ReturnType<typeof propStatusFrom>;
 
-// TITLE ===================================================================================================================================
+// TITLE -----------------------------------------------------------------------------------------------------------------------------------
 export function propTitleFrom({property_item: {id, type}, results}: Pick<NPropTitle, 'property_item' | 'results'>) {
   return {id, type, value: results.map(({title}) => richTextFrom(title))};
 }
@@ -167,13 +167,13 @@ export function propSimpleTitleFrom({id, title, type}: Omit<NPropSimpleTitle, 'o
 }
 export type PropSimpleTitle = ReturnType<typeof propSimpleTitleFrom>;
 
-// URL =====================================================================================================================================
+// URL ------------------------------------------------------------------------------------------------------------------------------------
 export function propUrlFrom({id, type, url}: Omit<NPropUrl, 'object'>) {
   return {id, type, value: banNull(url)};
 }
 export type PropUrl = ReturnType<typeof propUrlFrom>;
 
-// PROP ====================================================================================================================================
+// PROP ------------------------------------------------------------------------------------------------------------------------------------
 export function propExceptRollupFrom<P extends Exclude<NProp, NPropRollup>>(nProp: P) {
   if (nProp.type === 'checkbox') return propCheckboxFrom(nProp);
   if (nProp.type === 'created_by') return propCreatedByFrom(nProp);

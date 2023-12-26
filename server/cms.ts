@@ -1,13 +1,11 @@
 import {Client} from '@notionhq/client';
 import {NotionToMarkdown} from 'notion-to-md';
-import type {PageAny} from '../schemas';
-import type {AnyContentRef, AnyDataRef, AnyRef, Collection} from '../schemas/cms';
-import {blockChildDatabaseFrom, isBlockChildDatabase, pageFrom} from '../utils';
-import {dataFrom, getPageTitle} from '../utils/cms';
-import {createNotion, type CreateNotionP} from './sdk';
+import type {AnyContentRef, AnyDataRef, AnyRef, Collection, PageAny} from '../schemas';
+import {blockChildDatabaseFrom, dataFrom, getPageTitle, isBlockChildDatabase, pageFrom} from '../utils';
+import {createNotion, type CreateNotionParams} from './sdk';
 import {safe} from './utils';
 
-export function createNotionCms(params: CreateNotionCmsP) {
+export function createNotionCms(params: CreateNotionCmsParams) {
   const notion = createNotion(params);
   const n2m = new NotionToMarkdown({notionClient: new Client({auth: params.auth})});
 
@@ -80,5 +78,5 @@ export function createNotionCms(params: CreateNotionCmsP) {
   };
 }
 
-// TYPES ===================================================================================================================================
-export type CreateNotionCmsP = CreateNotionP & {pageId: string};
+// TYPES -----------------------------------------------------------------------------------------------------------------------------------
+export type CreateNotionCmsParams = CreateNotionParams & {pageId: string};

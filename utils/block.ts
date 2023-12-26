@@ -38,7 +38,7 @@ import type {
 } from '../schemas/input';
 import {commonFrom, fileFrom, listCommonFrom, parentFrom} from './common';
 
-// BLOCK ===================================================================================================================================
+// BLOCK -----------------------------------------------------------------------------------------------------------------------------------
 export function blockCommonFrom<B extends NBlockCommon>({has_children: hasChildren, object: _, parent, ...r}: B) {
   return commonFrom({...r, hasChildren, parent: parentFrom(parent)});
 }
@@ -63,7 +63,7 @@ export function blockCalloutFrom({callout: value, ...r}: NBlockCallout) {
   return blockCommonFrom({value, ...r});
 }
 
-// CHILD DATABASE ==========================================================================================================================
+// CHILD DATABASE --------------------------------------------------------------------------------------------------------------------------
 export function blockChildDatabaseFrom({child_database: {title: value}, ...r}: NBlockChildDatabase) {
   return blockCommonFrom({value, ...r});
 }
@@ -81,12 +81,12 @@ export function isBlockChildDatabase(block: NBlock | Block) {
 
 
 
-// CHILD PAGE ==============================================================================================================================
+// CHILD PAGE ------------------------------------------------------------------------------------------------------------------------------
 export function blockChildPageFrom({child_page: {title: value}, ...r}: NBlockChildPage) {
   return blockCommonFrom({value, ...r});
 }
 
-// CODE ====================================================================================================================================
+// CODE ------------------------------------------------------------------------------------------------------------------------------------
 export function blockCodeFrom({code: value, ...r}: NBlockCode) {
   return blockCommonFrom({value, ...r});
 }
@@ -229,7 +229,7 @@ export function blockFrom<B extends NBlock>(block: B) {
 }
 export type Block = ReturnType<typeof blockFrom>;
 
-// LIST ====================================================================================================================================
+// LIST ------------------------------------------------------------------------------------------------------------------------------------
 export function listBlockFrom({block: _, results, type: __, ...r}: NListBlock) {
   return listCommonFrom({...r, results: results.map(blockFrom)});
 }
