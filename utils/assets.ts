@@ -1,5 +1,5 @@
+import kebabCase from 'just-kebab-case';
 import {extname} from 'pathe';
-import {kebabCase} from 'scule';
 import {parseFilename} from 'ufo';
 
 export function getExtensionFromUrl(src: string) {
@@ -8,10 +8,11 @@ export function getExtensionFromUrl(src: string) {
   return extname(filename);
 }
 
-export function getImageDimensions({aspectRatio, height, width}: GetImageDimensionsParams) {
-  if (!aspectRatio) return {height, width};
-  if (aspectRatio >= width / height) return {height: Math.round(width / aspectRatio), width};
-  return {height, width: Math.round(height * aspectRatio)};
+export function getImageDimensions({aspectRatio: ar, height, width}: GetImageDimensionsParams) {
+  const lqip = {height: Math.round((16 * height) / width), width: 16};
+  if (!ar) return {img: {height, width}, lqip};
+  if (ar >= width / height) return {img: {height: Math.round(width / ar), width}, lqip: {...lqip, height: Math.round(lqip.width / ar)}};
+  return {img: {height, width: Math.round(height * ar)}, lqip: {...lqip, width: Math.round(lqip.height * ar)}};
 }
 
 export function getImageName({alt, extension, height, width}: GetImageNameParams) {
@@ -20,5 +21,6 @@ export function getImageName({alt, extension, height, width}: GetImageNameParams
 
 // TYPES -----------------------------------------------------------------------------------------------------------------------------------
 export type ImageDimensions = {height: number; width: number};
+//export type GetImageBlurSvg = ImageDimensions
 export type GetImageDimensionsParams = ImageDimensions & {aspectRatio?: number};
 export type GetImageNameParams = ImageDimensions & {alt: string; extension: string};
